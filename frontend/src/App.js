@@ -97,7 +97,7 @@ function App() {
       <div className="mission-container">
         {/* Header with glitch effect */}
         <header className={`mission-header ${isGlitching ? 'glitch' : ''}`}>
-          <h1 className="mission-title">Starfleet Rescue</h1>
+          <h1 className="mission-title">Star Fleet Rescue</h1>
           <div className="mission-subtitle">Mission Briefing</div>
           
           {/* Timer display */}
