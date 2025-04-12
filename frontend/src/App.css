@@ -681,7 +681,10 @@ body {
 .reduced-motion .starfield-bg:after,
 .reduced-motion .parallax-layer-1,
 .reduced-motion .parallax-layer-2,
-.reduced-motion .particles-container:after {
+.reduced-motion .particles-container:after,
+.reduced-motion .spaceship,
+.reduced-motion .borg-queen,
+.reduced-motion .borg-drone {
   animation: none;
 }
 
