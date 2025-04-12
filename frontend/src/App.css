@@ -417,8 +417,51 @@ body {
 }
 
 .crew-avatar {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 0.75rem;
+  border: 1px solid var(--panel-border);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px var(--panel-glow), inset 0 0 10px var(--panel-glow);
+  position: relative;
+  overflow: hidden;
+}
+
+.crew-avatar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  animation: scan-line 2s ease-in-out infinite;
+}
+
+.futuristic-icon {
+  width: 34px;
+  height: 34px;
+  stroke: var(--primary);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  filter: drop-shadow(0 0 3px var(--primary));
+  animation: icon-pulse 3s ease-in-out infinite;
+}
+
+@keyframes icon-pulse {
+  0%, 100% { stroke-width: 1.5px; opacity: 0.9; }
+  50% { stroke-width: 2px; opacity: 1; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
 }
 
 .crew-details {
