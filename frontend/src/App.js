@@ -91,6 +91,9 @@ function App() {
         <div className="parallax-layer-1"></div>
         <div className="parallax-layer-2"></div>
         <div className="particles-container"></div>
+        <div className="spaceship"></div>
+        <div className="borg-queen"></div>
+        <div className="borg-drone"></div>
       </div>
 
       {/* Mission briefing container */}
