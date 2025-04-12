@@ -1,0 +1,133 @@
+diff --git frontend/src/App.css frontend/src/App.css
+index 27a1dd2..cd3031b 100644
+--- frontend/src/App.css
++++ frontend/src/App.css
+@@ -417,51 +417,8 @@ body {
+ }
+ 
+ .crew-avatar {
+-  display: flex;
+-  justify-content: center;
+-  align-items: center;
+-  width: 60px;
+-  height: 60px;
+-  margin: 0 auto 0.75rem;
+-  border: 1px solid var(--panel-border);
+-  border-radius: 50%;
+-  background: rgba(0, 0, 0, 0.4);
+-  box-shadow: 0 0 10px var(--panel-glow), inset 0 0 10px var(--panel-glow);
+-  position: relative;
+-  overflow: hidden;
+-}
+-
+-.crew-avatar::before {
+-  content: '';
+-  position: absolute;
+-  top: 0;
+-  left: 0;
+-  right: 0;
+-  height: 1px;
+-  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+-  animation: scan-line 2s ease-in-out infinite;
+-}
+-
+-.futuristic-icon {
+-  width: 34px;
+-  height: 34px;
+-  stroke: var(--primary);
+-  stroke-linecap: round;
+-  stroke-linejoin: round;
+-  fill: none;
+-  filter: drop-shadow(0 0 3px var(--primary));
+-  animation: icon-pulse 3s ease-in-out infinite;
+-}
+-
+-@keyframes icon-pulse {
+-  0%, 100% { stroke-width: 1.5px; opacity: 0.9; }
+-  50% { stroke-width: 2px; opacity: 1; }
+-}
+-
+-@keyframes scan-line {
+-  0% { transform: translateY(-100%); opacity: 0; }
+-  50% { opacity: 1; }
+-  100% { transform: translateY(100%); opacity: 0; }
++  font-size: 2rem;
++  margin-bottom: 0.5rem;
+ }
+ 
+ .crew-details {
+diff --git frontend/src/App.js frontend/src/App.js
+index 44bcc1d..1e75ade 100644
+--- frontend/src/App.js
++++ frontend/src/App.js
+@@ -17,65 +17,12 @@ function App() {
+   const [showTooltip, setShowTooltip] = useState("");
+   const [reducedMotion, setReducedMotion] = useState(false);
+ 
+-  // Team members data with futuristic SVG icons
++  // Team members data
+   const teamMembers = [
+-    { 
+-      role: "Captain", 
+-      avatar: (
+-        <svg viewBox="0 0 24 24" className="futuristic-icon" fill="none" xmlns="http://www.w3.org/2000/svg">
+-          <path d="M12 6L21 18H3L12 6Z" stroke="currentColor" strokeWidth="1.5" />
+-          <circle cx="12" cy="14" r="3" stroke="currentColor" strokeWidth="1.5" />
+-          <path d="M12 17V20" stroke="currentColor" strokeWidth="1.5" />
+-          <path d="M7 20H17" stroke="currentColor" strokeWidth="1.5" />
+-        </svg>
+-      ), 
+-      status: "Ready", 
+-      health: 100 
+-    },
+-    { 
+-      role: "Engineer", 
+-      avatar: (
+-        <svg viewBox="0 0 24 24" className="futuristic-icon" fill="none" xmlns="http://www.w3.org/2000/svg">
+-          <path d="M12 4V6" stroke="currentColor" strokeWidth="1.5" />
+-          <path d="M18 12H20" stroke="currentColor" strokeWidth="1.5" />
+-          <path d="M4 12H6" stroke="currentColor" strokeWidth="1.5" />
+-          <path d="M12 18V20" stroke="currentColor" strokeWidth="1.5" />
+-          <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="1.5" />
+-          <circle cx="12" cy="12" r="2" stroke="currentColor" strokeWidth="1.5" />
+-          <path d="M16 16L18 18" stroke="currentColor" strokeWidth="1.5" />
+-          <path d="M8 16L6 18" stroke="currentColor" strokeWidth="1.5" />
+-          <path d="M16 8L18 6" stroke="currentColor" strokeWidth="1.5" />
+-          <path d="M8 8L6 6" stroke="currentColor" strokeWidth="1.5" />
+-        </svg>
+-      ), 
+-      status: "Ready", 
+-      health: 95 
+-    },
+-    { 
+-      role: "No. 2", 
+-      avatar: (
+-        <svg viewBox="0 0 24 24" className="futuristic-icon" fill="none" xmlns="http://www.w3.org/2000/svg">
+-          <rect x="6" y="9" width="12" height="10" rx="1" stroke="currentColor" strokeWidth="1.5" />
+-          <path d="M8 9V7C8 5.34315 9.34315 4 11 4H13C14.6569 4 16 5.34315 16 7V9" stroke="currentColor" strokeWidth="1.5" />
+-          <circle cx="12" cy="14" r="2" stroke="currentColor" strokeWidth="1.5" />
+-          <path d="M12 16V18" stroke="currentColor" strokeWidth="1.5" />
+-        </svg>
+-      ), 
+-      status: "Standby", 
+-      health: 100 
+-    },
+-    { 
+-      role: "Ensign", 
+-      avatar: (
+-        <svg viewBox="0 0 24 24" className="futuristic-icon" fill="none" xmlns="http://www.w3.org/2000/svg">
+-          <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.5" />
+-          <path d="M4 18C4 14.6863 7.58172 12 12 12C16.4183 12 20 14.6863 20 18" stroke="currentColor" strokeWidth="1.5" />
+-          <path d="M8 19L16 19" stroke="currentColor" strokeWidth="1.5" />
+-        </svg>
+-      ), 
+-      status: "Preparing", 
+-      health: 85 
+-    }
++    { role: "Captain", avatar: "👩‍✈️", status: "Ready", health: 100 },
++    { role: "Engineer", avatar: "👨‍🔧", status: "Ready", health: 95 },
++    { role: "No. 2", avatar: "👩‍💼", status: "Standby", health: 100 },
++    { role: "Ensign", avatar: "👨‍🚀", status: "Preparing", health: 85 }
+   ];
+ 
+   // Mission objectives
